@@ -10,6 +10,28 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  //Save to Local
+  // const saveLocalTodos = () => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // };
+  // Error: React Hook useEffect has missing dependencies: 'filterHandler' and 
+  //'saveLocalTodos'. Either include them or remove the dependency array.
+
+  //Save to Local
+  const saveLocalTodos = React.useCallback(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  //Get from Local
+  const getLocalTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let localTodo = JSON.parse(localStorage.getItem("todos"));
+      setTodos(localTodo);
+    }
+  };
+
   //RUN ONCE WHEN THE APP START
   useEffect(() => {
     getLocalTodos();
@@ -17,44 +39,44 @@ function App() {
 
   //Use effect
   useEffect(() => {
+    //Function
+    const filterHandler = () => {
+        switch (status) {
+          case "completed":
+            setFilteredTodos(todos.filter((todo) => todo.completed === true));
+            break;
+          case "uncompleted":
+            setFilteredTodos(todos.filter((todo) => todo.completed === false));
+            break;
+          default:
+            setFilteredTodos(todos);
+            break;
+        }
+      }
     filterHandler();
     saveLocalTodos();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [todos, status]);
+  }, [todos, status, saveLocalTodos]);
+
 
   //Functions
-  const filterHandler = () => {
-    switch (status) {
-      case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
-        break;
-      case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
-        break;
-      default:
-        setFilteredTodos(todos);
-        break;
-    }
-  };
-  //Save to Local
-  const saveLocalTodos = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
-  };
-  //Get from Local
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let localTodo = JSON.parse(localStorage.getItem("todos"))
-      setTodos(localTodo)
-    }
-  };
+  // const filterHandler = () => {
+  //   switch (status) {
+  //     case "completed":
+  //       setFilteredTodos(todos.filter((todo) => todo.completed === true));
+  //       break;
+  //     case "uncompleted":
+  //       setFilteredTodos(todos.filter((todo) => todo.completed === false));
+  //       break;
+  //     default:
+  //       setFilteredTodos(todos);
+  //       break;
+  //   }
+  // };
 
   return (
     <div className="App">
       <header>
         <h1>ToDo list App </h1>
-        <h3>Continuous deployment test</h3>
       </header>
       <Form
         inputText={inputText}
@@ -68,6 +90,10 @@ function App() {
         todos={todos}
         filteredTodos={filteredTodos}
       />
+      <footer>
+      <h3>🚧 Continuous deployment test 🚧</h3>
+      </footer>
+      
     </div>
   );
 }
