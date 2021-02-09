@@ -148,6 +148,4 @@ select {
 .complete-btn:hover {
   background-color: rgb(220, 220, 220);
   color: rgb(44, 44, 44);
-  border-radius: 15%;
-  transform: scale(0.8);
 }
