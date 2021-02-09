@@ -39,7 +39,7 @@ function App() {
 
   //Use effect
   useEffect(() => {
-    //Function
+    //Function refactored filterHandler
     const filterHandler = () => {
         switch (status) {
           case "completed":
@@ -76,7 +76,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>ToDo list App </h1>
+        <h1>To-Do App.</h1>
       </header>
       <Form
         inputText={inputText}

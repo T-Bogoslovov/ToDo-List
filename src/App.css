@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg, #b91ed0 0%, #00d4ff 100%);
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+}
+h1 {
+  font-family: "Hammersmith One";
+  font-weight: 100;
+  margin-top: 100px;
 }
 header {
   font-size: 2rem;
@@ -20,6 +25,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 1.5rem;
 }
 form input,
 form button {
@@ -29,20 +35,19 @@ form button {
   background: white;
 }
 form button {
-  color: #ff6f47;
+  color: #2f68b4;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: #ff6f47;
+  background: #2f68b4;
   color: white;
 }
 .todo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .todo-list {
@@ -53,7 +58,7 @@ form button:hover {
 .todo {
   margin: 0.5rem;
   background: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: black;
   display: flex;
   justify-content: space-between;
@@ -66,21 +71,24 @@ form button:hover {
 .todo li {
   flex: 1;
 }
-
 .trash-btn,
 .complete-btn {
-  background: #ff6f47;
+  background: #ac1d59;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
+  margin: 0.2rem 0.1rem;
+}
+.trash-btn {
+  margin-right: .2rem;
 }
 .complete-btn {
-  background: rgb(11, 212, 162);
+  background: #2f68b4;
 }
 .todo-item {
-  padding: 0rem 0.5rem;
+  padding: 0rem 1rem;
 }
 
 .fa-trash,
@@ -117,10 +125,10 @@ select {
   overflow: hidden;
 }
 select {
-  color: #ff6f47;
+  color: #2f68b4;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
-  width: 12rem;
+  width: 15rem;
 }
 /* Arrow */
 .select::after {
@@ -128,14 +136,17 @@ select {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1rem;
-  background: #ff6f47;
+  padding: 0.74rem;
+  margin: 0.18rem 0.22rem;
+  background: #2f68b4;
   cursor: pointer;
   pointer-events: none;
 }
 /* Transition */
-/*
-  .select:hover::after {
-    transform: scale(1.5);
-  }
-  */
+
+
+.trash-btn:hover,
+.complete-btn:hover {
+  background-color: rgb(230, 230, 230);
+  color: rgb(44, 44, 44);
+}
