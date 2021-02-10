@@ -10,6 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const appName = ["Welcome!", "This is a simple 'To-do' list" ];
   //Save to Local
   // const saveLocalTodos = () => {
   //   localStorage.setItem("todos", JSON.stringify(todos));
@@ -76,7 +77,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>To-Do App.</h1>
+        <h1>{appName[0]}</h1>
+        <p>{appName[1]}</p>
       </header>
       <Form
         inputText={inputText}
