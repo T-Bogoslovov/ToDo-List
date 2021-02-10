@@ -7,19 +7,22 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
     setInputText(e.target.value);
   };
   //
+  console.log(todos.value)
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([
-      ...todos,
-      { text: inputText, completed: false, id: Math.random() * 1000 },
-    ]);
+    if(inputText !== ''){
+      setTodos([
+        ...todos,
+        { text: inputText, completed: false, id: Math.random() * 1000 },
+      ]);
+    } else {
+      alert("Please input some text!")
+    }
     setInputText("");
   };
   const statusHandler = (e) => {
   setStatus(e.target.value);
 }
-
-
   return (
     <form>
       <input
