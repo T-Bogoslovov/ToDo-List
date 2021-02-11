@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = ({ text, todo, todos, setTodos }) => {
-  let date = new Date();
+  // let date = new Date();
   
   //Events
   const deleteHandler = () => {
