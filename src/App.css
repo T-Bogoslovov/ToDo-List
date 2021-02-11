@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(125deg, #a630b6 10%, #00d4ff 100%);
+  background-image: linear-gradient(135deg, #124cc8 20%, #d32088 100%);
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -20,7 +20,7 @@ p{
   font-weight: 100;
 }
 header {
-  padding-top: 10vh;
+  padding-top: 20vh;
   font-size: 2rem;
   flex-direction: column;
 }
@@ -80,13 +80,13 @@ form button:hover {
 }
 .trash-btn,
 .complete-btn {
-  background: #ac1d59;
+  background: #f6324c;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
-  margin: 0.18rem 0.14rem;
+  margin: 0.20rem 0.14rem;
 }
 .trash-btn {
   margin-right: .22rem;
@@ -148,7 +148,7 @@ select {
   cursor: pointer;
   pointer-events: none;
 }
-/* Transition */
+/* Hover */
 
 
 .trash-btn:hover,
@@ -156,3 +156,4 @@ select {
   background-color: rgb(220, 220, 220);
   color: rgb(44, 44, 44);
 }
+

@@ -1,47 +1,70 @@
 import React from "react";
 
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./toastify.css";
+
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
   //Here i can write javascript code and function, w/e...
   const inputTextHandler = (e) => {
-    // console.log(e.target.value);
     setInputText(e.target.value);
   };
-  //
-  console.log(todos.value)
+
   const submitTodoHandler = (e) => {
+    let date = new Date();
     e.preventDefault();
-    if(inputText !== ''){
+    //Input validator
+    if (inputText !== "") {
       setTodos([
         ...todos,
-        { text: inputText, completed: false, id: Math.random() * 1000 },
+        { text: inputText, completed: false, id: Math.random() * 1000, dateAdded: date.toLocaleTimeString() },
       ]);
     } else {
-      alert("Please input some text!")
+      toast.error("Ooops, you should add some text before adding a task!", {
+        position: "top-center",
+        autoClose: 4000,
+        transition: Slide,
+        closeOnClick: true,
+        draggable: true,
+        hideProgressBar: true,
+      });
     }
     setInputText("");
   };
   const statusHandler = (e) => {
-  setStatus(e.target.value);
-}
+    setStatus(e.target.value);
+  };
+
   return (
-    <form>
-      <input
-        value={inputText}
-        onChange={inputTextHandler}
-        type="text"
-        className="todo-input"
+    <div>
+      <form>
+        <input
+          value={inputText}
+          onChange={inputTextHandler}
+          type="text"
+          className="todo-input"
+        />
+        <button
+          onClick={submitTodoHandler}
+          className="todo-button"
+          type="submit"
+        >
+          <i className="fas fa-plus-square"></i>
+        </button>
+        <div className="select">
+          <select onChange={statusHandler} name="todos" className="filter-todo">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        limit={1}
       />
-      <button onClick={submitTodoHandler} className="todo-button" type="submit">
-        <i className="fas fa-plus-square"></i>
-      </button>
-      <div className="select">
-        <select onChange={statusHandler} name="todos" className="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div>
-    </form>
+    </div>
   );
 };
 

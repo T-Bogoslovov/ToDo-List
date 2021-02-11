@@ -24,10 +24,10 @@ const Todo = ({ text, todo, todos, setTodos }) => {
 
   return (
     <div className="todo">
-      {/* <div className="date">
+      <div className="date">
         <p style={{ marginLeft: "1rem" }}>{date.toLocaleTimeString()}</p>
-      </div> */}
-      <li className={`todo-item ${todo.completed ? "completed" : ''}`}>
+      </div>
+      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
         {text}
       </li>
       <button onClick={completeHandler} className="complete-btn">

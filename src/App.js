@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 //Importing custom components
 import Form from "./Components/Form";
@@ -6,20 +6,14 @@ import TodoList from "./Components/TodoList";
 
 function App() {
   //State Stuff
+  const appInfo = ["Welcome!", "This is a simple 'To-do' list app." ];
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const appName = ["Welcome!", "This is a simple 'To-do' list" ];
-  //Save to Local
-  // const saveLocalTodos = () => {
-  //   localStorage.setItem("todos", JSON.stringify(todos));
-  // };
-  // Error: React Hook useEffect has missing dependencies: 'filterHandler' and 
-  //'saveLocalTodos'. Either include them or remove the dependency array.
 
   //Save to Local
-  const saveLocalTodos = React.useCallback(() => {
+  const saveLocalTodos = useCallback(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
@@ -58,27 +52,11 @@ function App() {
     saveLocalTodos();
   }, [todos, status, saveLocalTodos]);
 
-
-  //Functions
-  // const filterHandler = () => {
-  //   switch (status) {
-  //     case "completed":
-  //       setFilteredTodos(todos.filter((todo) => todo.completed === true));
-  //       break;
-  //     case "uncompleted":
-  //       setFilteredTodos(todos.filter((todo) => todo.completed === false));
-  //       break;
-  //     default:
-  //       setFilteredTodos(todos);
-  //       break;
-  //   }
-  // };
-
   return (
     <div className="App">
       <header>
-        <h1>{appName[0]}</h1>
-        <p>{appName[1]}</p>
+        <h1>{appInfo[0]}</h1>
+        <p>{appInfo[1]}</p>
       </header>
       <Form
         inputText={inputText}
@@ -92,9 +70,6 @@ function App() {
         todos={todos}
         filteredTodos={filteredTodos}
       />
-      <footer>
-      <h3>🚧 Continuous deployment test 🚧</h3>
-      </footer>
       
     </div>
   );
