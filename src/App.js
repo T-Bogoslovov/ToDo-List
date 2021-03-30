@@ -12,11 +12,6 @@ function App() {
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
 
-  const date = new Date();
-
-  // Declare a new state variable, which we'll call "count"
-  const [time, setTime] = useState(date)
-
   //Save to Local
   const saveLocalTodos = useCallback(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
