@@ -73,7 +73,7 @@ form button:hover {
   transition: all 1s ease;
 }
 .filter-todo {
-  padding: 1rem;
+  padding: 1.05rem;
 }
 .todo li {
   flex: 1;
@@ -96,6 +96,7 @@ form button:hover {
 }
 .todo-item {
   padding: 0rem 1rem;
+  font-size: x-large;
 }
 
 .fa-trash,
@@ -157,3 +158,7 @@ select {
   color: rgb(44, 44, 44);
 }
 
+.date > P {
+  color: rgb(153, 153, 153);
+  font-size: 1.25em;
+}

@@ -1,7 +1,6 @@
 import React from "react";
 
 const Todo = ({ text, todo, todos, setTodos }) => {
-  // let date = new Date();
   
   //Events
   const deleteHandler = () => {
@@ -9,6 +8,7 @@ const Todo = ({ text, todo, todos, setTodos }) => {
     // console.log(todo);
   };
   const completeHandler = () => {
+    console.log(todo.dateAdded)
     setTodos(
       todos.map((item) => {
         if (item.id === todo.id) {
@@ -24,9 +24,9 @@ const Todo = ({ text, todo, todos, setTodos }) => {
 
   return (
     <div className="todo">
-      {/* <div className="date">
-        <p style={{ marginLeft: "1rem" }}>{date.toLocaleTimeString()}</p>
-      </div> */}
+      <div className="date">
+        <p style={{ marginLeft: "1rem" }}>{todo.dateAdded}</p>
+      </div>
       <li className={`todo-item ${todo.completed ? "completed" : ''}`}>
         {text}
       </li>

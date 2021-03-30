@@ -12,12 +12,13 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
 
   const submitTodoHandler = (e) => {
     let date = new Date();
+    let fullDate = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
     e.preventDefault();
     //Input validator
     if (inputText !== "") {
       setTodos([
         ...todos,
-        { text: inputText, completed: false, id: Math.random() * 1000, dateAdded: date.toLocaleTimeString() },
+        { text: inputText, completed: false, id: Math.random() * 1000, dateAdded: fullDate },
       ]);
     } else {
       toast.error("Ooops, you should add some text before adding a task!", {
