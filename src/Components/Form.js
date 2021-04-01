@@ -2,7 +2,7 @@ import React from "react";
 
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./toastify.css";
+import "../CSS/toastify.css";
 
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
   //Here i can write javascript code and function, w/e...
