@@ -21,13 +21,13 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
         { text: inputText, completed: false, id: Math.random() * 1000, dateAdded: fullDate },
       ]);
     } else {
-      toast.error("Ooops, you should add some text before adding a task!", {
+      toast.error("Task name is required!", {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 3000,
         transition: Slide,
         closeOnClick: true,
         draggable: true,
-        hideProgressBar: true,
+        hideProgressBar: false,
       });
     }
     setInputText("");
